@@ -23,6 +23,7 @@ class Person {
   constructor(name: string, age: number) {
     this.name = name;
     this.age = age;
+    this.getAge = this.getAge.bind(this); // this를 고정시키는 Function 기본 제공 메서드
   }
 
   getAge() {
@@ -36,4 +37,5 @@ p1.getAge();
 
 const myAge = p1.getAge;
 
-myAge.call(p1); // 메번 이렇게 call로 지정해주는 것도 번거로운 일
+// myAge.call(p1); // 메번 이렇게 call로 지정해주는 것도 번거로운 일
+myAge(); // Person 클래스에서 getAge를 bind 했기 때문에 이제 그냥 호출해도 p1.getAge()와 동일한 값이 나옴.  (p1은 Person의 인스턴스)
