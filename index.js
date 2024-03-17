@@ -12,3 +12,6 @@ person.getAge();
 const age = person.getAge;
 
 age();
+
+// 컨텍스트 객체 지정하기
+age.call(person);
